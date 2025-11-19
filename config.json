@@ -1,5 +1,4 @@
 {
-  // ---- Núcleo HF / BERT ----
   "model_type": "bert",
   "architectures": ["BertForSequenceClassification"],
   "vocab_size": 30522,
