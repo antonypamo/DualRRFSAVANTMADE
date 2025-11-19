@@ -1,25 +1,92 @@
 {
-  "architectures": [
-    "BertModel"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "dtype": "float32",
-  "gradient_checkpointing": false,
+  // ---- Núcleo HF / BERT ----
+  "model_type": "bert",
+  "architectures": ["BertForSequenceClassification"],
+  "vocab_size": 30522,
+  "hidden_size": 768,
+  "num_hidden_layers": 12,
+  "num_attention_heads": 12,
+  "intermediate_size": 3072,
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
-  "hidden_size": 384,
-  "initializer_range": 0.02,
-  "intermediate_size": 1536,
-  "layer_norm_eps": 1e-12,
+  "attention_probs_dropout_prob": 0.1,
   "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 6,
+  "type_vocab_size": 2,
+  "initializer_range": 0.02,
+  "layer_norm_eps": 1e-12,
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
-  "transformers_version": "4.57.0",
-  "type_vocab_size": 2,
+  "gradient_checkpointing": false,
   "use_cache": true,
-  "vocab_size": 30522
+  "classifier_dropout": null,
+  "problem_type": "single_label_classification",
+  "dtype": "float32",
+  "transformers_version": "4.57.0",
+
+  // ---- Estado adaptivo RRF / SAVANT ----
+  "adaptive_state": {
+    "meta": {
+      "fusion_mode": "SAVANT–Φ4.1∞+ symbiotic",
+      "fusion_timestamp": "2025-10-09"
+    },
+    "resonance_vector": [0.006346969060972333]
+  },
+
+  // ---- Geometría base del grafo cognitivo ----
+  "geometry": "icosa-dodeca-resonant",
+
+  // ---- Modo RRF explícito ----
+  "rrf_mode": "Φ4.1∞+",
+
+  "rrf_profile": {
+    "mode_id": "Φ4.1∞+",
+    "mode_family": "Φ",
+    "phi_order": 4.1,
+    "branch": "+∞",
+
+    "geometry": "icosa-dodeca-resonant",
+
+    // fibra efectiva del embedder real (RRFSAVANTMADE)
+    "embed_fiber_dim": 384,
+    "embedder": {
+      "hf_model_id": "antonypamo/RRFSAVANTMADE",
+      "base_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "max_seq_length": 256,
+      "output_dim": 384
+    },
+
+    // energía de acoplamiento sim-biótico con el motor SAVANT
+    "symbiotic": true,
+    "symbiotic_energy": -0.695067822933197,
+
+    // modo de funcionamiento del motor
+    "savant_engine": {
+      "engine_name": "SavantEngine-RRF-Made",
+      "engine_version": "main",
+      "ceremony_mode": "cemones-Φ4.1∞+",
+      "ceremonies": [
+        {
+          "id": "pre_align",
+          "kind": "spectral_init",
+          "description": "Alinear base interna del embedder con el espectro Φ/icosaédrico"
+        },
+        {
+          "id": "resonant_finetune",
+          "kind": "contrastive",
+          "loss": "CosineSimilarityLoss",
+          "dataset_size": 363,
+          "reference": "RRF similarity corpus 2025"
+        },
+        {
+          "id": "integration_pass",
+          "kind": "self_supervised",
+          "description": "Normalización y estabilización resonante post-ajuste"
+        }
+      ]
+    }
+  },
+
+  // guardas también aquí, para acceso rápido
+  "symbiotic_energy": -0.695067822933197
 }
+
