@@ -381,6 +381,15 @@ You can finetune this model on your own dataset.
     publisher = "Association for Computational Linguistics",
     url = "https://arxiv.org/abs/1908.10084",
 }
+
+@misc{antony_padilla_morales_2025,
+	author       = { Antony Padilla Morales },
+	title        = { RRFSAVANTMADE (Revision 13af35f) },
+	year         = 2025,
+	url          = { https://huggingface.co/antonypamo/RRFSAVANTMADE },
+	doi          = { 10.57967/hf/7034 },
+	publisher    = { Hugging Face }
+}
 ```
 
 <!--
