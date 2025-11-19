@@ -1,14 +1,14 @@
 {
-  "_name_or_path": "bert-base-uncased",
+  "_name_or_path": "sentence-transformers/all-MiniLM-L6-v2",
 
   "model_type": "bert",
-  "architectures": ["BertForSequenceClassification"],
+  "architectures": ["BertModel"],
 
   "vocab_size": 30522,
-  "hidden_size": 768,
-  "num_hidden_layers": 12,
+  "hidden_size": 384,
+  "num_hidden_layers": 6,
   "num_attention_heads": 12,
-  "intermediate_size": 3072,
+  "intermediate_size": 1536,
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "attention_probs_dropout_prob": 0.1,
@@ -20,11 +20,12 @@
   "position_embedding_type": "absolute",
   "gradient_checkpointing": false,
   "use_cache": true,
+
+  "torch_dtype": "float32",
+  "transformers_version": "4.57.1",
+
   "classifier_dropout": null,
   "problem_type": "single_label_classification",
-
-  "dtype": "float32",
-  "transformers_version": "4.57.0",
 
   "adaptive_state": {
     "meta": {
@@ -43,6 +44,7 @@
     "mode_family": "Φ",
     "phi_order": 4.1,
     "branch": "+∞",
+
     "geometry": "icosa-dodeca-resonant",
 
     "embed_fiber_dim": 384,
