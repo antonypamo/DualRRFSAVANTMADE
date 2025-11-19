@@ -22,7 +22,6 @@
   "dtype": "float32",
   "transformers_version": "4.57.0",
 
-  // ---- Estado adaptivo RRF / SAVANT ----
   "adaptive_state": {
     "meta": {
       "fusion_mode": "SAVANT–Φ4.1∞+ symbiotic",
@@ -31,10 +30,10 @@
     "resonance_vector": [0.006346969060972333]
   },
 
-  // ---- Geometría base del grafo cognitivo ----
+ 
   "geometry": "icosa-dodeca-resonant",
 
-  // ---- Modo RRF explícito ----
+
   "rrf_mode": "Φ4.1∞+",
 
   "rrf_profile": {
@@ -45,7 +44,7 @@
 
     "geometry": "icosa-dodeca-resonant",
 
-    // fibra efectiva del embedder real (RRFSAVANTMADE)
+    
     "embed_fiber_dim": 384,
     "embedder": {
       "hf_model_id": "antonypamo/RRFSAVANTMADE",
@@ -54,11 +53,11 @@
       "output_dim": 384
     },
 
-    // energía de acoplamiento sim-biótico con el motor SAVANT
+  
     "symbiotic": true,
     "symbiotic_energy": -0.695067822933197,
 
-    // modo de funcionamiento del motor
+
     "savant_engine": {
       "engine_name": "SavantEngine-RRF-Made",
       "engine_version": "main",
@@ -84,8 +83,7 @@
       ]
     }
   },
-
-  // guardas también aquí, para acceso rápido
+  
   "symbiotic_energy": -0.695067822933197
 }
 
