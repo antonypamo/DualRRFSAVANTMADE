@@ -1,4 +1,55 @@
 {
-    "max_seq_length": 256,
-    "do_lower_case": false
+  "_name_or_path": "bert-base-uncased",
+  "model_type": "bert",
+  "architectures": ["BertForSequenceClassification"],
+  "hidden_size": 768,
+  "num_hidden_layers": 12,
+  "num_attention_heads": 12,
+  "intermediate_size": 3072,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "attention_probs_dropout_prob": 0.1,
+  "max_position_embeddings": 512,
+  "type_vocab_size": 2,
+  "vocab_size": 30522,
+  "layer_norm_eps": 1e-12,
+  "initializer_range": 0.02,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "use_cache": true,
+  "problem_type": "single_label_classification",
+
+  /* --- RRF / Savant extension --- */
+
+  "rrf_mode": "Φ4.1∞+",
+
+  "rrf_config": {
+    "mode_label": "Φ4.1∞+",
+    "mode_level": 4.1,
+    "mode_branch": "infinity_plus",
+
+    "geometry": "icosa-dodeca-resonant",
+    "base_embedder": "bert-base-uncased",
+
+    "adaptive_state": {
+      "meta": {
+        "fusion_mode": "SAVANT–Φ4.1∞+ symbiotic",
+        "fusion_timestamp": "2025-10-09"
+      },
+      "resonance_vector": [0.006346969060972333]
+    },
+
+    "symbiotic_energy": -0.695067822933197,
+
+    "savant_engine": {
+      "cemones_phase": true,
+      "pipeline": [
+        "semantic_pre_alignment",
+        "icosahedral_projection",
+        "dodecahedral_dual_coupling",
+        "resonance_scaling",
+        "symbiotic_feedback"
+      ]
+    }
+  }
 }
