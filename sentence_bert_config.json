@@ -19,8 +19,6 @@
   "use_cache": true,
   "problem_type": "single_label_classification",
 
-  /* --- RRF / Savant extension --- */
-
   "rrf_mode": "Φ4.1∞+",
 
   "rrf_config": {
