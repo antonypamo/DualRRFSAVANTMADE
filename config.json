@@ -1,6 +1,9 @@
 {
+  "_name_or_path": "bert-base-uncased",
+
   "model_type": "bert",
   "architectures": ["BertForSequenceClassification"],
+
   "vocab_size": 30522,
   "hidden_size": 768,
   "num_hidden_layers": 12,
@@ -19,6 +22,7 @@
   "use_cache": true,
   "classifier_dropout": null,
   "problem_type": "single_label_classification",
+
   "dtype": "float32",
   "transformers_version": "4.57.0",
 
@@ -30,9 +34,7 @@
     "resonance_vector": [0.006346969060972333]
   },
 
- 
   "geometry": "icosa-dodeca-resonant",
-
 
   "rrf_mode": "Φ4.1∞+",
 
@@ -41,10 +43,8 @@
     "mode_family": "Φ",
     "phi_order": 4.1,
     "branch": "+∞",
-
     "geometry": "icosa-dodeca-resonant",
 
-    
     "embed_fiber_dim": 384,
     "embedder": {
       "hf_model_id": "antonypamo/RRFSAVANTMADE",
@@ -53,10 +53,8 @@
       "output_dim": 384
     },
 
-  
     "symbiotic": true,
     "symbiotic_energy": -0.695067822933197,
-
 
     "savant_engine": {
       "engine_name": "SavantEngine-RRF-Made",
@@ -83,7 +81,6 @@
       ]
     }
   },
-  
+
   "symbiotic_energy": -0.695067822933197
 }
-
