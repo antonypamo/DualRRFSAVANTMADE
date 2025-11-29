@@ -141,6 +141,17 @@ score = util.cos_sim(embeddings[0], embeddings[1])
 print(score)
 ```
 
+## Quickstart
+
+Run local inference against the model directory:
+
+```bash
+pip install -r requirements.txt
+python inference.py "Quantum states on the icosahedral lattice" --compare "Icosahedral eigenmodes describe resonant fields"
+```
+
+If you only provide one sentence, the script reports the embedding dimension and a short preview of the normalized embedding values.
+
 ## Model Details
 
 ### Model Description
