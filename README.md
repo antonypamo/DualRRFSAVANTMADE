@@ -101,6 +101,17 @@ library_name: sentence-transformers
 
 This is a [sentence-transformers](https://www.SBERT.net) model finetuned from [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2). It maps sentences & paragraphs to a 384-dimensional dense vector space and can be used for semantic textual similarity, semantic search, paraphrase mining, text classification, clustering, and more.
 
+## Quickstart
+
+Run local inference against the model directory:
+
+```bash
+pip install -r requirements.txt
+python inference.py "Quantum states on the icosahedral lattice" --compare "Icosahedral eigenmodes describe resonant fields"
+```
+
+If you only provide one sentence, the script reports the embedding dimension and a short preview of the normalized embedding values.
+
 ## Model Details
 
 ### Model Description
