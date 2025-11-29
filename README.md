@@ -101,6 +101,46 @@ library_name: sentence-transformers
 
 This is a [sentence-transformers](https://www.SBERT.net) model finetuned from [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2). It maps sentences & paragraphs to a 384-dimensional dense vector space and can be used for semantic textual similarity, semantic search, paraphrase mining, text classification, clustering, and more.
 
+## Deployment & quick start
+
+### Run a local embedding API
+
+1. Install dependencies (Python 3.10+ recommended):
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Start the FastAPI server (loads the model from this directory by default):
+   ```bash
+   uvicorn deploy:app --host 0.0.0.0 --port 8000
+   ```
+   Set `MODEL_PATH=/path/to/model` to point at a different checkpoint.
+3. Call the endpoints:
+   - Get metadata: `curl http://localhost:8000/`
+   - Embed sentences:
+     ```bash
+     curl -X POST http://localhost:8000/embed \
+       -H "Content-Type: application/json" \
+       -d '{"sentences": ["hola mundo", "resonance of reality"], "normalize": true}'
+     ```
+   - Similarity against a list of targets:
+     ```bash
+     curl -X POST http://localhost:8000/similarity \
+       -H "Content-Type: application/json" \
+       -d '{"source": "icosahedral network", "targets": ["graph structure", "text embedding"], "normalize": true}'
+     ```
+
+### Use in Python
+
+```python
+from sentence_transformers import SentenceTransformer, util
+
+model = SentenceTransformer(".")  # or a custom path
+queries = ["icosahedral lattice", "autovalores de la red"]
+embeddings = model.encode(queries, convert_to_tensor=True, normalize_embeddings=True)
+score = util.cos_sim(embeddings[0], embeddings[1])
+print(score)
+```
+
 ## Model Details
 
 ### Model Description
