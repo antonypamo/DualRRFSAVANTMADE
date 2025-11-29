@@ -129,6 +129,12 @@ This is a [sentence-transformers](https://www.SBERT.net) model finetuned from [s
        -d '{"source": "icosahedral network", "targets": ["graph structure", "text embedding"], "normalize": true}'
      ```
 
+### Customize the served checkpoint
+
+- **Serve another model location**: set `MODEL_PATH` to any directory containing a SentenceTransformer-compatible checkpoint (e.g., a Hugging Face snapshot). The server will load that path instead of the bundled weights.
+- **Swap tokenizer/model files only**: place the alternative `config.json`, `pytorch_model.bin`/`model.safetensors`, and tokenizer files in a folder and point `MODEL_PATH` there. The existing `deploy.py` uses `SentenceTransformer(MODEL_PATH)` so no code changes are required.
+- **Hardware tuning**: update the `--port`, `--host`, or add `--workers` via Uvicorn CLI flags if you need concurrent workers or different binding. For GPU usage, install the CUDA-enabled PyTorch build before starting Uvicorn.
+
 ### Use in Python
 
 ```python
@@ -249,6 +255,16 @@ You can finetune this model on your own dataset.
 
 *What are recommendations with respect to the foreseeable issues? For example, filtering explicit content.*
 -->
+
+## Training configuration at a glance
+
+- **Base model**: `sentence-transformers/all-MiniLM-L6-v2`
+- **Dataset**: 363 paired examples with similarity labels (`sentence_0`, `sentence_1`, `label`).
+- **Objective**: `CosineSimilarityLoss` (MSE under the hood) for contrastive similarity learning.
+- **Sequence length**: max 256 tokens.
+- **Batching**: train/eval batch size of 16 with round-robin multi-dataset sampler.
+- **Optimization**: AdamW (lr = 5e-5, weight decay = 0) for 3 epochs with linear scheduler and no warmup.
+- **Reproducibility**: seed 42; fp16/bf16 disabled; checkpoints saved as safetensors.
 
 ## Training Details
 
